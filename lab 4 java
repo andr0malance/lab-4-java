@@ -1,44 +1,29 @@
 import java.util.Arrays;
-
-public class Main {
+package com.company;import java.util.Arrays;import java.util.Scanner;public class Main {
 
     public static void insertionSort(int[] arr) {
-        int n = arr.length;
-        for (int i = 1; i < n; i++) {
-            int key = arr[i];
-            int j = i - 1;
-
-            while (j >= 0 && arr[j] > key) {
-                arr[j + 1] = arr[j];
-                j = j - 1;
-            }
-            arr[j + 1] = key;
-        }
+        int n = arr.length;        for (int i = 1; i < n; i++) {
+            int key = arr[i];            int j = i - 1;            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];                j = j - 1;            }
+            arr[j + 1] = key;        }
     }
 
     public static void sortRowsAscending(int[][] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            insertionSort(arr[i]);
-        }
+        for (int[] ints : arr) {
+            insertionSort(ints);        }
     }
 
     public static void main(String[] args) {
-        int[][] array = {
-                {5, 3, 7, 1},
-                {9, 2, 6, 4},
-                {11, 8, 10, 12}
-        };
-
-        System.out.println("Двумерный массив до сортировки:");
-        for (int[] row : array) {
-            System.out.println(Arrays.toString(row));
+        Scanner input = new Scanner(System.in);        System.out.println("Введите ширину массива");        int A = input.nextInt();        System.out.println("Введите длину массива");        int B = input.nextInt();        int[][] array = new int[A][B];        System.out.println("Введите каждый элемент массива");        for (int i=0; i<A;i++){
+            for (int j=0; j<B; j++){
+                array[i][j] = input.nextInt();            }
         }
 
-        sortRowsAscending(array);
 
-        System.out.println("Двумерный массив после сортировки:");
-        for (int[] row : array) {
-            System.out.println(Arrays.toString(row));
-        }
+
+        System.out.println("Двумерный массив до сортировки:");        for (int[] row : array) {
+            System.out.println(Arrays.toString(row));        }
+
+        sortRowsAscending(array);        System.out.println("Двумерный массив после сортировки:");        for (int[] row : array) {
+            System.out.println(Arrays.toString(row));        }
     }
-}
